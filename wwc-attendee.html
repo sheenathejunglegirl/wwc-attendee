@@ -1,0 +1,57 @@
+<!--
+Written as a demonstration for Women Who Code Phoenix, `wwc-attendee` demonstrates
+using polymer to create a reusable element which represents an individual using
+firstName, lastName and some configurable styling.
+
+@element wwc-attendee
+@homepage http://github.com/sheenathejunglegirl/wwc-attendee
+-->
+
+<link rel='import' href='../polymer/polymer.html'/>
+<link rel='import' href='../paper-shadow/paper-shadow.html'/>
+<link rel='import' href='../core-tooltip/core-tooltip.html'/>
+
+<polymer-element name='wwc-attendee' attributes='firstName lastName backgroundColor color'>
+    <template>
+
+        <style>
+            #icon {
+                width: 60px;
+                height: 60px;
+                background: #000;
+                font-family: sans-serif;
+                font-size: 20px;
+                text-align: center;
+                color: #fff;
+                border-radius: 30px;
+            }
+        </style>
+
+        <core-tooltip label="{{firstName}} {{lastName}}">
+            <paper-shadow id="icon" z="1" layout horizontal center center-justified></paper-shadow>
+        </core-tooltip>
+
+    </template>
+    <script>
+
+        Polymer({
+            ready: function() {
+                this.$.icon.style.backgroundColor = this.backgroundColor;
+                this.$.icon.style.color = this.color;
+                this.$.icon.innerHTML = getInitials(this.firstName, this.lastName);
+
+                function getInitials(firstName, lastName) {
+                    var initials = '';
+                    if(firstName) {
+                        initials += firstName.charAt(0);
+                    }
+                    if(lastName) {
+                        initials += lastName.charAt(0);
+                    }
+                    return initials.toUpperCase();
+                }
+            }
+        });
+
+    </script>
+</polymer-element>

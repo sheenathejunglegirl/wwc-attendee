@@ -1,0 +1,13 @@
+{
+  "name": "wwc-attendee",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sheenathejunglegirl/wwc-attendee",
+  "authors": [
+    "Sheena Smith <sheenathejunglegirl@gmail.com>"
+  ],
+  "dependencies": {
+      "polymer": "Polymer/polymer#~0.5.4",
+      "paper-shadow": "Polymer/paper-shadow#0.5.4",
+      "core-tooltip": "Polymer/core-tooltip#0.5.4"
+  }
+}
