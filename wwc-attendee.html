@@ -12,46 +12,48 @@ firstName, lastName and some configurable styling.
 <link rel='import' href='../core-tooltip/core-tooltip.html'/>
 
 <polymer-element name='wwc-attendee' attributes='firstName lastName backgroundColor color'>
-    <template>
+	<template>
 
-        <style>
-            #icon {
-                width: 60px;
-                height: 60px;
-                background: #000;
-                font-family: sans-serif;
-                font-size: 20px;
-                text-align: center;
-                color: #fff;
-                border-radius: 30px;
-            }
-        </style>
+		<style>
+			#icon {
+				width: 60px;
+				height: 60px;
+				border-radius: 30px;
+				font-family: sans-serif;
+				font-size: 20px;
+			}
+		</style>
 
-        <core-tooltip label="{{firstName}} {{lastName}}">
-            <paper-shadow id="icon" z="1" layout horizontal center center-justified></paper-shadow>
-        </core-tooltip>
+		<core-tooltip label="{{firstName}} {{lastName}}">
+ 			<paper-shadow id="icon" style="color:{{color}}; background:{{backgroundColor}}" z="3" layout horizontal center center-justified></paper-shadow>
+		</core-tooltip>
 
-    </template>
-    <script>
+	</template>
 
-        Polymer({
-            ready: function() {
-                this.$.icon.style.backgroundColor = this.backgroundColor;
-                this.$.icon.style.color = this.color;
-                this.$.icon.innerHTML = getInitials(this.firstName, this.lastName);
+	<script>
 
-                function getInitials(firstName, lastName) {
-                    var initials = '';
-                    if(firstName) {
-                        initials += firstName.charAt(0);
-                    }
-                    if(lastName) {
-                        initials += lastName.charAt(0);
-                    }
-                    return initials.toUpperCase();
-                }
-            }
-        });
+		Polymer({
+			ready: function() {
+				this.$.icon.innerHTML = getInitials(this.firstName, this.lastName);
+				function getInitials(firstName, lastName) {
+					var initials = '';
+					if(firstName) {
+						initials += firstName.charAt(0);
+					}
+					if(lastName) {
+						initials += lastName.charAt(0);
+					}
+					return initials.toUpperCase();
+				}
+			},
+			backgroundColor: "#000",
+			color: "#fff",
+			invertColors: function() {
+				var backgroundColor = this.backgroundColor;
+				this.backgroundColor = this.color;
+				this.color = backgroundColor;
+			}
+		});
 
-    </script>
+	</script>
 </polymer-element>
