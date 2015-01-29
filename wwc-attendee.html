@@ -9,6 +9,7 @@ firstName, lastName and some configurable styling.
 
 <link rel='import' href='../polymer/polymer.html'/>
 <link rel='import' href='../paper-shadow/paper-shadow.html'/>
+<link rel='import' href='../core-tooltip/core-tooltip.html'/>
 
 <polymer-element name='wwc-attendee' attributes='firstName lastName backgroundColor color'>
 	<template>
@@ -25,7 +26,9 @@ firstName, lastName and some configurable styling.
 			}
 		</style>
 
-		<paper-shadow id="icon" style="color:{{color}}; background:{{backgroundColor}}" z="3" layout horizontal center center-justified></paper-shadow>
+		<core-tooltip label="{{firstName}} {{lastName}}">
+ 			<paper-shadow id="icon" style="color:{{color}}; background:{{backgroundColor}}" z="3" layout horizontal center center-justified></paper-shadow>
+		</core-tooltip>
 
 	</template>
 
