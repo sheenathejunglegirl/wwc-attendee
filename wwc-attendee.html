@@ -10,7 +10,7 @@ firstName, lastName and some configurable styling.
 <link rel='import' href='../polymer/polymer.html'/>
 <link rel='import' href='../paper-shadow/paper-shadow.html'/>
 
-<polymer-element name='wwc-attendee'>
+<polymer-element name='wwc-attendee' attributes='firstName lastName'>
 	<template>
 
 		<style>
@@ -19,10 +19,13 @@ firstName, lastName and some configurable styling.
 				height: 60px;
 				background: #000;
 				border-radius: 30px;
+				font-family: sans-serif;
+				font-size: 20px;
+				color: #fff;
 			}
 		</style>
 
-		<paper-shadow id="icon" z="3"></paper-shadow>
+		<paper-shadow id="icon" z="3" layout horizontal center center-justified></paper-shadow>
 
 	</template>
 
@@ -30,6 +33,17 @@ firstName, lastName and some configurable styling.
 
 		Polymer({
 			ready: function() {
+				this.$.icon.innerHTML = getInitials(this.firstName, this.lastName);
+				function getInitials(firstName, lastName) {
+					var initials = '';
+					if(firstName) {
+						initials += firstName.charAt(0);
+					}
+					if(lastName) {
+						initials += lastName.charAt(0);
+					}
+					return initials.toUpperCase();
+				}
 			}
 		});
 
