@@ -5,7 +5,13 @@
         <meta charset="utf-8">
         <title>wwc-attendee demo</title>
         <script src="../webcomponentsjs/webcomponents.js"></script>
-        <link rel="import" href="./wwc-attendee.html">
+	<link rel="import" href="./wwc-attendee.html">
+
+	<style>
+		wwc-attendee {
+			cursor: pointer;
+		}
+	</style>
 
     </head>
     <body unresolved>
@@ -30,6 +36,15 @@
 		<wwc-attendee firstName="John" lastName="Doe" color="#00bbd5"></wwc-attendee>
 		<wwc-attendee lastName="Smith" color="#eb1460"></wwc-attendee>
 	</section>
+
+	<script>
+		var wwcAttendees = document.querySelectorAll("wwc-attendee")
+		for (var i = 0, len = wwcAttendees.length; i < len; i++) {
+			wwcAttendees[i].addEventListener("click", function(e){
+				e.target.invertColors();
+			});
+		}
+	</script>
 
     </body>
 </html>

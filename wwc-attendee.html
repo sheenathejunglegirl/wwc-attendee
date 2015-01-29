@@ -18,11 +18,9 @@ firstName, lastName and some configurable styling.
 			#icon {
 				width: 60px;
 				height: 60px;
-				background: #000;
 				border-radius: 30px;
 				font-family: sans-serif;
 				font-size: 20px;
-				color: #fff;
 			}
 		</style>
 
@@ -47,6 +45,13 @@ firstName, lastName and some configurable styling.
 					}
 					return initials.toUpperCase();
 				}
+			},
+			backgroundColor: "#000",
+			color: "#fff",
+			invertColors: function() {
+				var backgroundColor = this.backgroundColor;
+				this.backgroundColor = this.color;
+				this.color = backgroundColor;
 			}
 		});
 
