@@ -10,7 +10,7 @@ firstName, lastName and some configurable styling.
 <link rel='import' href='../polymer/polymer.html'/>
 <link rel='import' href='../paper-shadow/paper-shadow.html'/>
 
-<polymer-element name='wwc-attendee' attributes='firstName lastName'>
+<polymer-element name='wwc-attendee' attributes='firstName lastName backgroundColor color'>
 	<template>
 
 		<style>
@@ -25,7 +25,7 @@ firstName, lastName and some configurable styling.
 			}
 		</style>
 
-		<paper-shadow id="icon" z="3" layout horizontal center center-justified></paper-shadow>
+		<paper-shadow id="icon" style="color:{{color}}; background:{{backgroundColor}}" z="3" layout horizontal center center-justified></paper-shadow>
 
 	</template>
 
